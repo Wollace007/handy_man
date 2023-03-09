@@ -1,0 +1,25 @@
+.view-preq-text-wrapper{
+    margin-top: 0.4rem;
+    margin-left: 1rem;
+}
+.preq-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 0.5rem;
+ 
+}
+
+.preq-icon-wrapper .preq-icon {
+    font-size: 2rem;
+    color: #1976d2;
+}
+.status-icon{
+  
+    height: 12px;
+    width: 12px;
+    border-radius:50% ;
+    margin-right: 10px;
+    background-color: red;
+    
+}
