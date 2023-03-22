@@ -73,10 +73,10 @@ function LandingPage() {
                       alignItems: "center",
                     }}
                   >
-                    <img
+                   <img
                       style={{ height: "50%", width: "50%" }}
                       alt="logo"
-                      src={Logo}
+                      src ={Logo}
                     />
                     <Typography
                       variant="p"
@@ -418,7 +418,7 @@ function LandingPage() {
                 display: "flex",
                 justifyContent: "flex-end",
                 flexDirection: "column",
-                marginBottom: "16rem"
+                marginBottom: "16rem",
               }}
             >
               <div
@@ -427,7 +427,6 @@ function LandingPage() {
                   justifyContent: "flex-end",
                   fontSize: "2.3rem",
                   fontWeight: "bolder",
-                 
                 }}
               >
                 <span style={{ color: "#ff6d00" }}>
@@ -439,7 +438,6 @@ function LandingPage() {
                   display: "flex",
                   justifyContent: "flex-start",
                   fontSize: "1rem",
-                 
                 }}
               >
                 We are agile, fast paced to adjust a business
@@ -474,7 +472,7 @@ function LandingPage() {
                   justifyContent: "flex-start",
                   fontSize: "2.3rem",
                   fontWeight: "bolder",
-                  marginTop:"8rem"
+                  marginTop: "8rem",
                 }}
               >
                 <span style={{ color: "black" }}>
@@ -579,7 +577,6 @@ function LandingPage() {
         </Grid>
       </Box>
 
-     
       <footer
         style={{ flexGrow: 1, padding: "2rem", backgroundColor: "#1a237e" }}
       >
@@ -588,8 +585,6 @@ function LandingPage() {
           spacing={2}
           style={{ display: "flex", justifyContent: "flex-start" }}
         >
-             
-             
           <Grid
             item
             xs={6}
@@ -634,10 +629,14 @@ function LandingPage() {
                 </Button>
               ))}
             </Box>
-
           </Grid>
 
-<Grid item xs={12}><Box> <Divider style={{backgroundColor:"#fff"}}/></Box></Grid>
+          <Grid item xs={12}>
+            <Box>
+              {" "}
+              <Divider style={{ backgroundColor: "#fff" }} />
+            </Box>
+          </Grid>
 
           <Grid
             item
@@ -662,13 +661,13 @@ function LandingPage() {
             <a href="https://www.facebook.com" target="_blank">
               <Facebook />
             </a>
-            <a href="https://www.twitter.com"target="_blank">
+            <a href="https://www.twitter.com" target="_blank">
               <Twitter />
             </a>
-            <a href="https://www.instagram.com"target="_blank">
+            <a href="https://www.instagram.com" target="_blank">
               <Instagram />
             </a>
-            <a href="https://www.linkedin.com"target="_blank">
+            <a href="https://www.linkedin.com" target="_blank">
               <LinkedIn />
             </a>
           </Grid>
