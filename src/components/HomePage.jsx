@@ -7,6 +7,7 @@ import './homepage.css'
 import Photo from '../Media/images/prof avatar.png'
 import Modal from './service_provider_modal/Modal';
 
+
 function HomePage() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const handleProfileMenuOpen = (event) => {
@@ -23,6 +24,7 @@ function HomePage() {
 
   return (
     <>
+  
       <Box sx={{ p: 5 }}>
         <Card style={{ padding: "20px", backgroundColor: "#f8bbd0", display: 'flex', flexDirection: 'column', color: '#fff', borderRadius: '25px' }}>
           <Grid item xs={12} style={{ display: 'flex', marginBottom: "2rem", justifyContent: 'flex-start' }}>

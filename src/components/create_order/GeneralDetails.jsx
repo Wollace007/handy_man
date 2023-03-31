@@ -17,136 +17,34 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import StarIcon from '@mui/icons-material/Star';
 import Person from "../../Media/images/person looking.jpg";
 import Pro from "../../Media/images/hat.jpg";
-import { Avatar, Button, Grid, IconButton, Paper, Rating, TextareaAutosize } from "@mui/material";
-import { Add, Delete, Done, RateReview } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+import { Avatar, Button, Grid, IconButton, Link, Menu, MenuItem, Paper, Rating, TextareaAutosize, Tooltip } from "@mui/material";
+import { Add, Delete, Done, Logout, PersonAdd, RateReview, Settings } from "@mui/icons-material";
+import Sidebar from "../sidebar/Sidebar";
+ 
 
 
 const drawerWidth = 280;
 
 function GeneralDetails() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <>
       <Box sx={{ display: "flex" }}>
-        <CssBaseline />
-        <AppBar
-          position="fixed"
-          elevation={0}
-          sx={{
-            width: `calc(100% - ${drawerWidth}px)`,
-            ml: `${drawerWidth}px`,
-            background: "#fff",
-          }}
-        >
-          <Toolbar>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ color: "#000000" }}
-            >
-              General Details
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <Drawer
-          sx={{
-            width: drawerWidth,
-            flexShrink: 0,
-            "& .MuiDrawer-paper": {
-              width: drawerWidth,
-              boxSizing: "border-box",
-            },
-          }}
-          variant="permanent"
-          anchor="left"
-        >
-            {/* <img
-                style={{ height: "10%", width: "50%",display:'flex',alignItems:'center' }}
-                alt="logo"
-                src={Logo}
-              /> */}
-          <Toolbar />
-        
-          <Divider />
-          <List>
-            {["General Details", "Address"].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-          <Divider />
-          <List>
-            {["Date and Time", "Price and Payment"].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-          <Box sx={{ flexGrow: 1, padding: "2px 12px" }}>
-            <Paper
-              elevation={10}
-              style={{
-                flexGrow: 1,
-                padding: "1.5rem",
-                marginTop: "1rem",
-                borderRadius: "12px",
-                backgroundColor: "#6495ED",
-              }}
-            >
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={12}>
-                  <img
-                    style={{
-                      height: "45vh",
-                      width: "100%",
-                      border: "none",
-                      objectFit: "contain",
-                    }}
-                    alt="looking"
-                    src={Person}
-                  />
-                  <span style={{ fontSize: "1rem", fontWeight: "bold" }}>
-                    Looking for the best contract of your request?
-                  </span>
-                </Grid>
-                <Grid item xs={12} sm={12}>
-                  <Button
-                    variant="contained"
-                    style={{
-                      backgroundColor: "#ff8f00",
-                      borderRadius: "12px",
-                      padding: "1px 18px",
-                    }}
-                  >
-                    <span style={{ textTransform: "capitalize" }}>
-                      Upgrade to Premium
-                    </span>
-                  </Button>
-                </Grid>
-              </Grid>
-            </Paper>
-          </Box>
-
-        </Drawer>
+     <Sidebar/>
         <Box
           component="main"
           sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
         >
           <Toolbar />
           <Grid container spacing={2}>
-            <Grid item xs={6}>
+            <Grid item xs={8}>
               <Grid
                 item
                 xs={12}
@@ -286,7 +184,7 @@ function GeneralDetails() {
               </Grid>
             </Grid>
 
-            <Grid item xs={6}>
+            <Grid item xs={4}>
               <Paper elevation={3}>
                 <Grid container spacing={2} style={{ display: 'flex', alignItems: 'center' }}>
                   <Grid item style={{ marginRight: '5px', display: 'flex', alignItems: 'center' }}>
@@ -294,6 +192,81 @@ function GeneralDetails() {
                     <Avatar alt="wollace" src={Pro} sx={{ width: 100, height: 100 }} />
                   </Grid>
                   <Grid item style={{ display: 'flex', flexDirection: 'column' }}>
+                 <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center',marginLeft:"8rem" }}>
+      <Tooltip title="Account settings">
+        <IconButton
+          onClick={handleClick}
+          size="small"
+          sx={{ ml: 2 }}
+          aria-controls={open ? 'account-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? 'true' : undefined}
+        >
+            <MoreVertIcon sx={{ width: 32, height: 32 }}>M</MoreVertIcon>
+        </IconButton>
+      </Tooltip>
+    </Box>
+    <Menu
+      anchorEl={anchorEl}
+      id="account-menu"
+      open={open}
+      onClose={handleClose}
+      onClick={handleClose}
+      PaperProps={{
+        elevation: 0,
+        sx: {
+          overflow: 'visible',
+          filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+          mt: 1.5,
+          '& .MuiAvatar-root': {
+            width: 32,
+            height: 32,
+            ml: -0.5,
+            mr: 1,
+          },
+          '&:before': {
+            content: '""',
+            display: 'block',
+            position: 'absolute',
+            top: 0,
+            right: 14,
+            width: 10,
+            height: 10,
+            bgcolor: 'background.paper',
+            transform: 'translateY(-50%) rotate(45deg)',
+            zIndex: 0,
+          },
+        },
+      }}
+      transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+      anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+    >
+      <MenuItem onClick={handleClose}>
+        <Avatar /> Profile
+      </MenuItem>
+      <MenuItem onClick={handleClose}>
+        <Avatar /> My account
+      </MenuItem>
+      <Divider />
+      <MenuItem onClick={handleClose}>
+        <ListItemIcon>
+          <PersonAdd fontSize="small" />
+        </ListItemIcon>
+        Add another account
+      </MenuItem>
+      <MenuItem onClick={handleClose}>
+        <ListItemIcon>
+          <Settings fontSize="small" />
+        </ListItemIcon>
+        Settings
+      </MenuItem>
+      <MenuItem onClick={handleClose}>
+        <ListItemIcon>
+          <Logout fontSize="small" />
+        </ListItemIcon>
+        Logout
+      </MenuItem>
+    </Menu>
                     <Grid item style={{ display: 'flex', flexDirection: 'row' }} >
                       <span> Captain Morgan</span>
 
@@ -308,7 +281,7 @@ function GeneralDetails() {
                     </Grid>
                   </Grid>
                   <IconButton aria-label="settings">
-            <MoreVertIcon />
+           
           </IconButton>
                 </Grid>
               </Paper>

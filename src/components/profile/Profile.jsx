@@ -176,9 +176,9 @@ function Profile() {
   return (
     <Box sx={{ p: 10 }}>
 
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex',p:2 }}>
 
-        <AppBar component="nav">
+        <AppBar component="nav" elevation={0}>
           <Toolbar>
             <IconButton
               size="large"

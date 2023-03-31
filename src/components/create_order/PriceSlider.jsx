@@ -5,6 +5,7 @@ import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import Box from '@mui/material/Box';
+import { Card, Checkbox, FormControlLabel } from '@mui/material';
 
 function ValueLabelComponent(props) {
   const { children, value } = props;
@@ -62,15 +63,38 @@ const PrettoSlider = styled(Slider)({
 function PriceSlider() {
   return (
     <>
-      <Box sx={{ width: 320 }}>
-      <Box sx={{ m: 3 }} />
-     
-      <PrettoSlider
-        valueLabelDisplay="auto"
-        aria-label="pretto slider"
-        defaultValue={20}
-      />  
-    </Box>
+      <Box sx={{ width: 250, mx: 4 }}>
+        <Box sx={{ m: 1 }} />
+        <div style={{ display: "flex" }}>Average price rating</div> 
+        <div style={{ marginRight:"3rem"}}>This price is the  preliminary estimate of your order</div> <br/>
+        <div style={{ display: "flex" }}>
+          <Card style={{ padding: "1rem" }}>
+            <div>$1245.00</div>
+          </Card> 
+        </div><br/> 
+        <div style={{ display: "flex" }}>Edit Price</div>
+        <PrettoSlider
+          valueLabelDisplay="auto"
+          aria-label="pretto slider"
+          defaultValue={20}
+        />
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <span>Low</span>
+          <span>Deal Probability </span>
+          <span>High</span>
+        </div> <br/>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <FormControlLabel
+            value="end"
+            control={<Checkbox />}
+            label="Price may be discussed"
+            labelPlacement="end"
+          /> 
+          <div style={{ display: "flex", marginRight: "2rem" }}>
+            After your is completed,you'll be able to indicate the actual amount paid to the contractor
+          </div>
+        </div>
+      </Box>
     </>
   )
 }

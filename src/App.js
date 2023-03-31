@@ -15,15 +15,15 @@ function App() {
     <div className="App">
      <Router>
         <Routes> 
-       <Route path="/homepage"element={<HomePage />} />   
-       <Route path="/fundiprofile"element={<FundiProfile />}/>  
-       <Route path="/landpage"element={<LandingPage />}/> 
+       <Route path="/"element={<HomePage />} />   
+       <Route path="/fundi-profile"element={<FundiProfile />}/>  
+       <Route path="/landing-page"element={<LandingPage />}/> 
        <Route path="/head"element={<Header />}/> 
        <Route path="/product"element={<Product />}/> 
-       <Route path="/generaldetails"element={<GeneralDetails />}/> 
+       <Route path="/general-details"element={<GeneralDetails />}/> 
        <Route path="/address"element={<Address />}/> 
-       <Route path="/dateandtime"element={<DateandTime />}/> 
-       <Route path="/priceandpayment"element={<PriceandPayment />}/> 
+       <Route path="/date-time"element={<DateandTime />}/> 
+       <Route path="/price-payment"element={<PriceandPayment />}/> 
 
         </Routes>
       </Router>
